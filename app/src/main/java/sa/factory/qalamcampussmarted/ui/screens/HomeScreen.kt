@@ -27,6 +27,7 @@ fun HomeScreen(
     onItemClick: (QalamCampusItem) -> Unit
 ) {
     val categories = listOf("الكل", "الخدمات الرئيسية", "المراقبة الحية", "التقارير الضريبية", "الإعدادات")
+    val fallbackPeripheral = "Smart Stylus Digitizer (4096-Level) + BLE Beacon"
 
     Column(
         modifier = Modifier
@@ -36,8 +37,8 @@ fun HomeScreen(
     ) {
         // Header
         Column {
-            Text("تطبيق قلم الأكاديمية — مطلوب مصمم جرافيك محترف للعم", fontSize = 22.sp, fontWeight = FontWeight.Black, color = BrandTextPrimary)
-            Text("منظومة smart_education المتكاملة مع ربط Smart Stylus Digitizer 4096-Level + BLE Beacon", fontSize = 12.sp, color = BrandTextSecondary)
+            Text("قلم الأكاديمية — منصة التعليم الذكية", fontSize = 22.sp, fontWeight = FontWeight.Black, color = BrandTextPrimary)
+            Text("منظومة smart_education المتكاملة مع ربط القلم الرقمي وأجهزة الحضور الذكي", fontSize = 12.sp, color = BrandTextSecondary)
         }
 
         // Hardware Status Capsule
@@ -52,7 +53,7 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: 'Smart Stylus Digitizer 4096-Level + BLE Beacon'}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
+                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: fallbackPeripheral}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
                     Text(state.telemetry?.liveReading ?: "Smart Stylus Digitizer 4096-Level + BLE Beacon: ONLINE | READY", fontSize = 11.sp, color = BrandTextSecondary)
                 }
                 Badge(containerColor = BrandPrimary) {
